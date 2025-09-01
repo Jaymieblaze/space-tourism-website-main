@@ -1,6 +1,8 @@
+// src/pages/Home/index.tsx
+
 function Home() {
   return (
-    <main className="grid min-h-screen grid-rows-2 items-center px-6 pt-24 text-center lg:grid-cols-2 lg:grid-rows-1 lg:text-left">
+    <main className="flex-grow grid items-end px-6 pb-12 text-center lg:grid-cols-2 lg:text-left lg:pb-32">
       {/* Text Content */}
       <div className="flex flex-col items-center lg:items-start">
         <h5 className="font-sans-condensed text-base uppercase tracking-[2.7px] text-indigo-200 md:text-xl lg:text-2xl">
@@ -17,7 +19,7 @@ function Home() {
       </div>
 
       {/* Explore Button */}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center pt-12 lg:pt-0">
         <a href="#" className="grid h-36 w-36 place-items-center rounded-full bg-white font-serif text-xl uppercase tracking-[1.25px] text-black md:h-60 md:w-60 md:text-3xl">
           Explore
         </a>
