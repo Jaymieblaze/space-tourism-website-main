@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import { useState } from 'react';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+
+// Background images
+import BackgroundMobile from './assets/home/background-home-mobile.jpg';
+import BackgroundTablet from './assets/home/background-home-tablet.jpg';
+import BackgroundDesktop from './assets/home/background-home-desktop.jpg';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="relative min-h-screen">
+      {/* Background Images */}
+      <div 
+        className="absolute inset-0 z-[-1] bg-cover bg-center sm:hidden" 
+        style={{ backgroundImage: `url(${BackgroundMobile})` }}
+      ></div>
+      <div 
+        className="absolute inset-0 z-[-1] hidden bg-cover bg-center sm:block md:hidden" 
+        style={{ backgroundImage: `url(${BackgroundTablet})` }}
+      ></div>
+      <div 
+        className="absolute inset-0 z-[-1] hidden bg-cover bg-center md:block" 
+        style={{ backgroundImage: `url(${BackgroundDesktop})` }}
+      ></div>
+
+      {/* Page Content */}
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Home />
+    </div>
+  );
 }
 
-export default App
+export default App;
