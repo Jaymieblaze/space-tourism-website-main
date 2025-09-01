@@ -1,5 +1,3 @@
-// src/components/Home/Home.tsx
-
 function Home() {
   return (
     <main className="grid min-h-screen grid-rows-2 items-center px-6 pt-24 text-center lg:grid-cols-2 lg:grid-rows-1 lg:text-left">

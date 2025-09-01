@@ -1,4 +1,4 @@
-// src/components/Header/Header.tsx
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/shared/logo.svg';
 import hamburgerIcon from '../../assets/shared/icon-hamburger.svg';
 import closeIcon from '../../assets/shared/icon-close.svg';
@@ -9,17 +9,22 @@ interface HeaderProps {
 }
 
 function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
+  const location = useLocation(); // Get the current location
+  const { pathname } = location;
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // A helper function to create nav links, making it easier to manage the active state
-  const navLink = (number: string, text: string, isActive = false) => (
-    <a href="#" className={`flex items-center h-full border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white/50`}>
-      <span className="font-bold mr-2 hidden lg:inline">{number}</span>
-      <span className="uppercase tracking-widest">{text}</span>
-    </a>
-  );
+  const navLink = (href: string, number: string, text: string) => {
+    const isActive = pathname === href;
+    return (
+      <Link to={href} className={`flex items-center h-full border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white/50`}>
+        <span className="font-bold mr-2 hidden lg:inline">{number}</span>
+        <span className="uppercase tracking-widest">{text}</span>
+      </Link>
+    );
+  };
 
   return (
     <header className="flex items-center justify-between md:pl-10 lg:pt-10">
@@ -44,10 +49,10 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         ${isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
       `}>
         <ul className="flex flex-col gap-8 pt-28 px-8 md:flex-row md:gap-9 md:h-24 md:p-0 md:px-12">
-          <li>{navLink('00', 'Home', true)}</li> 
-          <li>{navLink('01', 'Destination')}</li>
-          <li>{navLink('02', 'Crew')}</li>
-          <li>{navLink('03', 'Technology')}</li>
+          <li>{navLink('/', '00', 'Home')}</li> 
+          <li>{navLink('/destination', '01', 'Destination')}</li>
+          <li>{navLink('/crew', '02', 'Crew')}</li>
+          <li>{navLink('/technology', '03', 'Technology')}</li>
         </ul>
       </nav>
     </header>
