@@ -42,7 +42,7 @@ function Layout() {
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen flex flex-col">
       {/* Background Images */}
       <div 
         className="absolute inset-0 z-[-1] bg-cover bg-center sm:hidden" 

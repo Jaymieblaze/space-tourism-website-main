@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Destination from './pages/Destination';
 import Crew from './pages/Crew';
+import Technology from './pages/Technology';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/crew" element={<Crew />} />
-        {/* We'll add routes for Crew and Technology later */}
+        <Route path="/technology" element={<Technology />} />
       </Route>
     </Routes>
   );

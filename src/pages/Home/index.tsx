@@ -2,7 +2,7 @@
 
 function Home() {
   return (
-    <main className="flex-grow grid items-end px-6 pb-12 text-center lg:grid-cols-2 lg:text-left lg:pb-32">
+    <main className="flex-grow grid items-end px-6 pb-12 text-center lg:grid-cols-2 lg:text-left lg:pb-32 lg:max-w-[1100px] w-full mx-auto">
       {/* Text Content */}
       <div className="flex flex-col items-center lg:items-start">
         <h5 className="font-sans-condensed text-base uppercase tracking-[2.7px] text-indigo-200 md:text-xl lg:text-2xl">
