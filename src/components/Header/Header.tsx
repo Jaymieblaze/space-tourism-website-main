@@ -23,7 +23,7 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         to={href}
         onClick={() => setIsMenuOpen(false)}
         className={`
-        flex items-center p-4 transition-colors duration-300
+        flex items-center text-white transition-colors duration-300
         border-r-4 md:border-r-0 md:h-full md:p-0 md:border-b-2 
         ${isActive ? 'border-white' : 'border-transparent hover:border-white/50'}
       `}
@@ -38,7 +38,9 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
     <header className="flex items-center justify-between md:pl-10 lg:pt-10">
       {/* Logo */}
       <div className="p-6 md:p-0">
-        <img src={logo} alt="Space Tourism logo" className="h-10 w-10 md:h-12 md:w-12" />
+        <Link to="/">
+          <img src={logo} alt="Space Tourism logo" className="h-10 w-10 md:h-12 md:w-12" />
+        </Link>
       </div>
 
       {/* Decorative Line (Desktop only) */}
@@ -56,7 +58,7 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         transition-transform duration-300 ease-in-out
         ${isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
       `}>
-        <ul className="flex flex-col gap-4 pt-28 pl-8 md:flex-row md:gap-9 md:h-24 md:p-0 md:px-12">
+        <ul className="flex flex-col gap-8 pt-28 pl-8 md:flex-row md:gap-9 md:h-24 md:p-0 md:pl-32 md:pr-20">
           <li>{navLink('/', '00', 'Home')}</li>
           <li>{navLink('/destination', '01', 'Destination')}</li>
           <li>{navLink('/crew', '02', 'Crew')}</li>
