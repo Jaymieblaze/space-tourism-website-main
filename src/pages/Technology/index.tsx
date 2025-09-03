@@ -1,7 +1,6 @@
-// src/pages/Technology/index.tsx
 import { useState } from 'react';
 import data from '../../../data.json';
-// Import all the images. Note the different types (portrait/landscape)
+import { useSwipeable } from 'react-swipeable';
 import launchVehicleLandscape from '../../assets/technology/image-launch-vehicle-landscape.jpg';
 import launchVehiclePortrait from '../../assets/technology/image-launch-vehicle-portrait.jpg';
 import spaceportLandscape from '../../assets/technology/image-spaceport-landscape.jpg';
@@ -21,6 +20,18 @@ function Technology() {
   const activeTech = technology[activeTechIndex];
   const activeImages = techImages[activeTechIndex];
 
+  // Swipe handlers
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      setActiveTechIndex((prevIndex) => (prevIndex + 1) % technology.length);
+    },
+    onSwipedRight: () => {
+      setActiveTechIndex((prevIndex) => (prevIndex - 1 + technology.length) % technology.length);
+    },
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
+
   return (
     <main className="flex-grow pt-24 text-white md:pt-32 lg:pl-40 lg:pb-32">
       {/* Page Title */}
@@ -29,7 +40,7 @@ function Technology() {
       </h1>
 
       {/* Main Content Area */}
-      <div className="flex flex-col items-center lg:flex-row-reverse lg:justify-between">
+      <div {...handlers}  className="flex flex-col items-center lg:flex-row-reverse lg:justify-between">
         {/* Technology Image */}
         <div className="w-full lg:w-1/3">
           {/* Landscape image for smaller screens */}
