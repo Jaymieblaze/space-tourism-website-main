@@ -10,3 +10,33 @@
 body {
   font-family: var(--font-sans-condensed);
 }
+
+/* Explore button hover effect */
+.explore-button-container {
+  position: relative;
+  z-index: 10; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.explore-button-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1); 
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  z-index: -1; 
+  pointer-events: none; 
+}
+
+.explore-button-container:hover::after {
+  transform: translate(-50%, -50%) scale(1.6); 
+  opacity: 1;
+}
