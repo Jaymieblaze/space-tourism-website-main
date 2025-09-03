@@ -13,7 +13,7 @@ function Destination() {
   const activeDestination = destinations[activeTab];
 
   return (
-    <main className="px-6 pt-24 text-center text-white lg:px-40 lg:pt-32 lg:text-left">
+    <main className="px-6 pt-24 text-center text-white lg:px-40 lg:pt-32 lg:pb-32 lg:text-left">
       {/* Page Title */}
       <h1 className="font-sans-condensed mb-8 text-base uppercase tracking-[2.7px] md:text-left md:text-xl lg:text-2xl">
         <span className="mr-4 font-bold opacity-25">01</span> Pick your destination
@@ -22,7 +22,7 @@ function Destination() {
       <div className="grid lg:grid-cols-2 lg:gap-32">
         {/* Planet Image */}
         <div className="flex justify-center py-8 lg:py-0">
-          <img src={destinationImages[activeTab]} alt={activeDestination.name} className="h-44 w-44 md:h-72 md:w-72 lg:h-auto lg:w-auto" />
+          <img src={destinationImages[activeTab]} alt={activeDestination.name} className="w-[170px] md:w-[300px] lg:w-full lg:max-w-[445px] aspect-square" />
         </div>
 
         {/* Tabs and Content */}

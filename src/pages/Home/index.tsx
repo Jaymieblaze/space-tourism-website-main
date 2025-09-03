@@ -1,8 +1,6 @@
-// src/pages/Home/index.tsx
-
 function Home() {
   return (
-    <main className="flex-grow grid items-end px-6 lg:px-0 text-center lg:grid-cols-2 lg:text-left lg:pb-20 lg:pt-10 lg:max-w-[1100px] w-full mx-auto">
+    <main className="flex-grow grid items-center px-6 text-center sm:justify-center md:justify-center lg:px-0 lg:items-end lg:grid-cols-2 lg:text-left lg:pb-20 lg:pt-10 lg:max-w-[1100px] lg:justify-between w-full mx-auto">
       {/* Text Content */}
       <div className="flex flex-col items-center lg:items-start">
         <h5 className="font-sans-condensed text-base uppercase tracking-[2.7px] text-indigo-200 md:text-xl lg:text-2xl">
@@ -19,7 +17,7 @@ function Home() {
       </div>
 
       {/* Explore Button */}
-      <div className="flex justify-center lg:justify-end items-center pt-12 lg:pt-0">
+      <div className="flex justify-center lg:justify-end items-center md:pt-0 lg:pt-0 z-0">
         <div className="explore-button-container aspect-square">
           <a
             href="/destination"

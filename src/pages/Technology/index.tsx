@@ -22,7 +22,7 @@ function Technology() {
   const activeImages = techImages[activeTechIndex];
 
   return (
-    <main className="flex-grow pt-24 text-white md:pt-32 lg:pl-40">
+    <main className="flex-grow pt-24 text-white md:pt-32 lg:pl-40 lg:pb-32">
       {/* Page Title */}
       <h1 className="w-full text-center font-sans-condensed mb-8 text-base uppercase tracking-[2.7px] md:text-left md:pl-10 md:text-xl lg:pl-0 lg:text-2xl">
         <span className="mr-4 font-bold opacity-25">03</span> Space launch 101

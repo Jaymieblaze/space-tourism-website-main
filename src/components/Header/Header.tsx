@@ -19,8 +19,15 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
   const navLink = (href: string, number: string, text: string) => {
     const isActive = pathname === href;
     return (
-      <Link to={href} className={`flex items-center h-full border-b-2 ${isActive ? 'border-white' : 'border-transparent'} hover:border-white/50`}>
-        <span className="font-bold mr-2 hidden lg:inline">{number}</span>
+      <Link
+        to={href}
+        className={`
+        flex items-center p-4 transition-colors duration-300
+        border-r-4 md:border-r-0 md:h-full md:p-0 md:border-b-2 
+        ${isActive ? 'border-white' : 'border-transparent hover:border-white/50'}
+      `}
+      >
+        <span className="font-bold mr-3">{number}</span>
         <span className="uppercase tracking-widest">{text}</span>
       </Link>
     );
@@ -48,8 +55,8 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         transition-transform duration-300 ease-in-out
         ${isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
       `}>
-        <ul className="flex flex-col gap-8 pt-28 px-8 md:flex-row md:gap-9 md:h-24 md:p-0 md:px-12">
-          <li>{navLink('/', '00', 'Home')}</li> 
+        <ul className="flex flex-col gap-4 pt-28 pl-8 md:flex-row md:gap-9 md:h-24 md:p-0 md:px-12">
+          <li>{navLink('/', '00', 'Home')}</li>
           <li>{navLink('/destination', '01', 'Destination')}</li>
           <li>{navLink('/crew', '02', 'Crew')}</li>
           <li>{navLink('/technology', '03', 'Technology')}</li>
