@@ -23,7 +23,7 @@ function Destination() {
       // Go to the previous destination, looping to the end if at the start
       setActiveTab((prevTab) => (prevTab - 1 + destinations.length) % destinations.length);
     },
-    preventScrollOnSwipe: true, // Prevents scrolling the page while swiping
+    preventScrollOnSwipe: true, 
     trackMouse: true // Allows swiping with a mouse for desktop testing
   });
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import data from '../../../data.json';
 import douglasImg from '../../assets/crew/image-douglas-hurley.png';
 import markImg from '../../assets/crew/image-mark-shuttleworth.png';
@@ -12,8 +13,20 @@ function Crew() {
     const { crew } = data;
     const activeCrewMember = crew[activeCrewIndex];
 
+    // Swipe handlers
+    const handlers = useSwipeable({
+        onSwipedLeft: () => {
+            setActiveCrewIndex((prevIndex) => (prevIndex + 1) % crew.length);
+        },
+        onSwipedRight: () => {
+            setActiveCrewIndex((prevIndex) => (prevIndex - 1 + crew.length) % crew.length);
+        },
+        preventScrollOnSwipe: true,
+        trackMouse: true
+    });
+
     return (
-        <main className="flex-grow flex flex-col mx-auto md:px-16 lg:max-w-[1100px] w-full">
+        <main {...handlers} className="flex-grow flex flex-col mx-auto md:px-16 lg:max-w-[1100px] w-full">
             {/* Page Title */}
             <div className="align-self-start w-full">
                 <h1 className="w-full pt-10 font-sans-condensed mb-8 text-base uppercase tracking-[2.7px] text-center text-white md:pt-16 md:text-left md:text-xl lg:text-2xl">
