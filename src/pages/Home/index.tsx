@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Home() {
   return (
     <main className="flex-grow grid items-center px-6 text-center sm:justify-center md:justify-center lg:px-0 lg:items-end lg:grid-cols-2 lg:text-left lg:pb-20 lg:pt-10 lg:max-w-[1100px] lg:justify-between w-full mx-auto">
@@ -19,12 +21,12 @@ function Home() {
       {/* Explore Button */}
       <div className="flex justify-center lg:justify-end items-center md:pt-0 lg:pt-0 z-0">
         <div className="explore-button-container aspect-square">
-          <a
-            href="/destination"
-            className="grid place-content-center h-[150px] w-[150px] rounded-full bg-white text-dark-blue font-serif text-xl uppercase md:h-[242px] md:w-[242px] md:text-[32px]"
+          <Link
+            to="/destination"
+            className="grid place-content-center h-[150px] w-[150px] rounded-full bg-white text-black font-serif text-xl uppercase md:h-[242px] md:w-[242px] md:text-[32px]"
           >
             Explore
-          </a>
+          </Link>
         </div>
       </div>
     </main>
