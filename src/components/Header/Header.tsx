@@ -42,7 +42,7 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
       </div>
 
       {/* Decorative Line (Desktop only) */}
-      <div className="flex-grow h-px bg-white/25 -mr-8 z-10 hidden lg:block"></div>
+      <div className="flex-grow h-px bg-white/25 -mr-8 z-20 hidden lg:block"></div>
 
       {/* Hamburger Menu Button (Mobile only) */}
       <button className="z-20 md:hidden p-6" onClick={toggleMenu}>
