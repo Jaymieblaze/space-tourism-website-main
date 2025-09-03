@@ -21,6 +21,7 @@ function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
     return (
       <Link
         to={href}
+        onClick={() => setIsMenuOpen(false)}
         className={`
         flex items-center p-4 transition-colors duration-300
         border-r-4 md:border-r-0 md:h-full md:p-0 md:border-b-2 
