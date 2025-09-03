@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import data from '../../../data.json';
 import moonImg from '../../assets/destination/image-moon.png';
 import marsImg from '../../assets/destination/image-mars.png';
@@ -12,8 +13,23 @@ function Destination() {
   const { destinations } = data;
   const activeDestination = destinations[activeTab];
 
+  // Swipe handlers
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      // Go to the next destination, looping back to the start if at the end
+      setActiveTab((prevTab) => (prevTab + 1) % destinations.length);
+    },
+    onSwipedRight: () => {
+      // Go to the previous destination, looping to the end if at the start
+      setActiveTab((prevTab) => (prevTab - 1 + destinations.length) % destinations.length);
+    },
+    preventScrollOnSwipe: true, // Prevents scrolling the page while swiping
+    trackMouse: true // Allows swiping with a mouse for desktop testing
+  });
+
+
   return (
-    <main className="px-6 pt-24 text-center text-white lg:px-40 lg:pt-32 lg:pb-32 lg:text-left">
+    <main {...handlers} className="px-6 pt-24 text-center text-white lg:px-40 lg:pt-32 lg:pb-32 lg:text-left">
       {/* Page Title */}
       <h1 className="font-sans-condensed mb-8 text-base uppercase tracking-[2.7px] md:text-left md:text-xl lg:text-2xl">
         <span className="mr-4 font-bold opacity-25">01</span> Pick your destination
